@@ -4,3 +4,4 @@ try:
     book = Book.objects.get(title="Nineteen Eighty-Four")
 except Book.DoesNotExist:
     print("The book was successfully deleted.")  # Expected output
+ ["book.delete", "from bookshelf.models import Book"]
