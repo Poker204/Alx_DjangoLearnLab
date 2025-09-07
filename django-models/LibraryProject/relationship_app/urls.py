@@ -1,12 +1,9 @@
-# relationship_app/urls.py
-
 from django.urls import path
 from . import views
-from .views import list_books
+
 urlpatterns = [
-    # URL for the function-based view that lists all books
-    path('books/', views.list_books, name='list_books'),
-    
-    # URL for the class-based view that shows details of a specific library
-    path('library/<int:pk>/', views.LibraryDetailView.as_view(), name='library_detail'),
-views.register", "LogoutView.as_view(template_name=", "LoginView.as_view(template_name="]
+    path('books/', views.book_list, name='book_list'),  # A list view to show all books
+    path('books/add/', views.add_book, name='add_book'),
+    path('books/edit/<int:book_id>/', views.edit_book, name='edit_book'),
+    path('books/delete/<int:book_id>/', views.delete_book, name='delete_book'),
+]
