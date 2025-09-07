@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Librarian View</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Welcome Librarian!</h1>
+    <p>This page is only accessible to users with the Librarian role.</p>
+
+    <h2>Manage Your Library</h2>
+    <p>As a librarian, you can manage the books and libraries in your care.</p>
+    
+    <!-- Example of accessing some data related to books, if applicable -->
+    <h3>Books in Your Library:</h3>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} by {{ book.author.name }}</li>
+        {% empty %}
+            <li>No books available yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
