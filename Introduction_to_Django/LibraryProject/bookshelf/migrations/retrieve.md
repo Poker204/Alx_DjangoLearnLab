@@ -5,7 +5,6 @@
 ```python
 from bookshelf.models import Book
 
-# Retrieve all books (or one if you prefer)
-books = Book.objects.all()  # Retrieve all books from the database
-for book in books:
-    print(book)
+# Retrieve the book with the title '1984'
+book = Book.objects.get(title="1984")
+print(book)
