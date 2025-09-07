@@ -1,16 +1,23 @@
-# relationship_app/models.py
 from django.db import models
 from django.contrib.auth.models import User
 
-ROLE_CHOICES = [
-    ('Admin', 'Admin'),
-    ('Librarian', 'Librarian'),
-    ('Member', 'Member'),
-]
-
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    role = models.CharField(max_length=10, choices=ROLE_CHOICES)
+class Author(models.Model):
+    name = models.CharField(max_length=255)
 
     def __str__(self):
-        return f"{self.user.username} - {self.role}"
+        return self.name
+
+class Book(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    publication_year = models.IntegerField()
+
+    class Meta:
+        permissions = [
+            ("can_add_book", "Can add a new book"),
+            ("can_change_book", "Can change a book's details"),
+            ("can_delete_book", "Can delete a book"),
+        ]
+
+    def __str__(self):
+        return self.title
