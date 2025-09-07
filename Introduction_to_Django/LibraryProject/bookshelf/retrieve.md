@@ -9,3 +9,4 @@ from bookshelf.models import Book
 books = Book.objects.all()  # Retrieve all books from the database
 for book in books:
     print(book)
+["Book.objects.get", "1984"]
