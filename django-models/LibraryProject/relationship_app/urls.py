@@ -7,3 +7,4 @@ urlpatterns = [
     path('books/edit/<int:book_id>/', views.edit_book, name='edit_book'),
     path('books/delete/<int:book_id>/', views.delete_book, name='delete_book'),
 ] ["add_book/", "edit_book/"]
+ ["book.delete", "from bookshelf.models import Book"]
