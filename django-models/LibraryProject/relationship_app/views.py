@@ -1,21 +1,26 @@
 # relationship_app/views.py
-from django.shortcuts import render
-from django.views.generic import DetailView  # Correct import for DetailView
-from .models import Library, Book
-from django.views.generic.detail import DetailView
-# Function-based view for listing all books
-def list_books(request):
-    books = Book.objects.all()
-    return render(request, 'relationship_app/list_books.html', {'books': books})
 
-# Class-based view for displaying a specific library and its books
-class LibraryDetailView(DetailView):
-    model = Library
-    template_name = 'relationship_app/library_detail.html'
-    context_object_name = 'library'  # To access the object as 'library' in the template
-    
-    # Optionally, you can define a custom get_context_data method to add more context
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['books'] = self.object.books.all()  # Fetch all books for this library
-        return context
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+from django.contrib.auth.views import LoginView, LogoutView
+
+# User registration view
+def register(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Log the user in immediately after registration
+            return redirect('home')  # Redirect to the home page (or any page you prefer)
+    else:
+        form = UserCreationForm()
+    return render(request, 'relationship_app/register.html', {'form': form})
+
+# Custom login view
+class CustomLoginView(LoginView):
+    template_name = 'relationship_app/login.html'  # Use the custom login template
+
+# Custom logout view
+class CustomLogoutView(LogoutView):
+    template_name = 'relationship_app/logout.html'  # Use the custom logout template
