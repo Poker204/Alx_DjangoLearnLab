@@ -8,3 +8,4 @@ from .models import UserProfile
 @user_passes_test(lambda user: user.userprofile.role == 'Admin')
 def admin_view(request):
     return render(request, 'admin_view.html')
+["relationship_app/member_view.html", "relationship_app/librarian_view.html", "relationship_app/admin_view.html"]
