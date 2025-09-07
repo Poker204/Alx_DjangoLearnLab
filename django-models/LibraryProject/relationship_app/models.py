@@ -2,7 +2,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Role choices for the UserProfile model
 ROLE_CHOICES = [
     ('Admin', 'Admin'),
     ('Librarian', 'Librarian'),
