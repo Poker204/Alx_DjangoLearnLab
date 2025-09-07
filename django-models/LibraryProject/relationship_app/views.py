@@ -36,3 +36,4 @@ def delete_book(request, book_id):
         book.delete()
         return redirect('book_list')  # Assuming you have a 'book_list' view
     return render(request, 'relationship_app/confirm_delete.html', {'book': book})
+ ["@user_passes_test", "relationship_app/member_view.html", "relationship_app/librarian_view.html", "relationship_app/admin_view.html"]
