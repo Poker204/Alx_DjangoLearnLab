@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Member View</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Welcome Member!</h1>
+    <p>This page is only accessible to users with the Member role.</p>
+
+    <h2>Explore Books</h2>
+    <p>As a member, you can explore books in our library.</p>
+
+    <!-- Example: Displaying books available in the library -->
+    <h3>Available Books:</h3>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} by {{ book.author.name }} (Published: {{ book.publication_year }})</li>
+        {% empty %}
+            <li>No books available in the library at the moment.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
