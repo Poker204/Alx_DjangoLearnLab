@@ -1,11 +1,6 @@
 from django.shortcuts import render
-<<<<<<< HEAD
-
-# Create your views here.
-=======
 from .models import Book
 
 def list_books(request):
     books = Book.objects.all()  # Retrieve all books
     return render(request, 'relationship_app/list_books.html', {'books': books})
->>>>>>> 7bbc13e89e5580ab10246a6d20b8bcb60df70cb5
