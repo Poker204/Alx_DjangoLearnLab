@@ -9,3 +9,4 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+: ["class Book(models.Model):", "can_create", "can_delete"]
