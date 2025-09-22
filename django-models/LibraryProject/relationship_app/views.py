@@ -27,3 +27,4 @@ def example_form_view(request):
         form = ExampleForm()
     return render(request, 'bookshelf/form_example.html', {'form': form})
 relationship_app/list_books.html
+relationship_app/library_detail.html", "library", "from .models import Library
