@@ -1,5 +1,5 @@
 INSTALLED_APPS = [
-    # Django apps
+    # Django default apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -9,19 +9,9 @@ INSTALLED_APPS = [
 
     # Third-party apps
     'rest_framework',
-    'rest_framework.authtoken',
+    'rest_framework.authtoken',   # 👈 Add this line
 
     # Your apps
     'api',
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',  # Optional for browsable API
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',  # Secure by default
-         ["rest_framework.authtoken"]
-    ]
-}
