@@ -9,4 +9,5 @@ INSTALLED_APPS = [
     "api",              # <-- Your app
     rest_framework.authtoken
     rest_framework.authentication.TokenAuthentication
+    rest_framework.permissions.IsAuthenticated"
 ]
