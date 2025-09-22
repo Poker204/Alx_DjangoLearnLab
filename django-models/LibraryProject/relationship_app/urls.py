@@ -8,4 +8,5 @@ urlpatterns = [
 
     # Class-based view
     path('example-class/', views.ExampleClassView.as_view(), name='example-class'),
+    from .views import list_books", "LibraryDetailView"]
 ]
