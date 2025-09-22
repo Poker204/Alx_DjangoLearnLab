@@ -10,3 +10,4 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'bookshelf.CustomUser'
+bookshelf.CustomUser
