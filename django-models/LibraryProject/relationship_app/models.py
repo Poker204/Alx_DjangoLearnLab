@@ -11,3 +11,4 @@ class Book(models.Model):
         return self.title
 : ["class Book(models.Model):", "can_create", "can_delete"]
 class Author(models.Model)", "return self.name
+class Librarian(models.Model)", "library
