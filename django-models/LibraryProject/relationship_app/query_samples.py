@@ -15,3 +15,4 @@ try:
     print("Book with ID 1:", single_book)
 except Book.DoesNotExist:
     print("Book with ID 1 does not exist")
+Library.objects.get(name=library_name)", "books.all()
