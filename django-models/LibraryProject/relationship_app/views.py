@@ -26,3 +26,4 @@ def example_form_view(request):
     else:
         form = ExampleForm()
     return render(request, 'bookshelf/form_example.html', {'form': form})
+relationship_app/list_books.html
