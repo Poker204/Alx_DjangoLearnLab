@@ -126,4 +126,5 @@ LOGGING = {
         'handlers': ['console'],
         'level': 'WARNING',
     },
+    bookshelf.CustomUser
 }
