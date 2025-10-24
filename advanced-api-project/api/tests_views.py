@@ -105,3 +105,31 @@ class BookAPITestCase(APITestCase):
         url = reverse('book-detail', args=[self.book1.id])
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+class BookFilteringSearchingOrderingTests(APITestCase):
+    """Tests for filtering, searching, and ordering functionality."""
+
+    def setUp(self):
+        Book.objects.create(title="Python 101", author="John Doe", published_date="2021-01-01")
+        Book.objects.create(title="Advanced Django", author="Jane Doe", published_date="2022-02-02")
+        Book.objects.create(title="Data Science", author="Alex Smith", published_date="2020-03-03")
+
+        self.client = APIClient()
+        self.list_url = reverse('book-list-create')
+
+    def test_filter_by_author(self):
+        response = self.client.get(self.list_url, {'author': 'John Doe'})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]['author'], 'John Doe')
+
+    def test_search_books(self):
+        response = self.client.get(self.list_url, {'search': 'Django'})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]['title'], 'Advanced Django')
+
+    def test_order_books_by_published_date(self):
+        response = self.client.get(self.list_url, {'ordering': 'published_date'})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        dates = [book['published_date'] for book in response.data]
+        self.assertEqual(dates, sorted(dates))
