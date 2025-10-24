@@ -23,4 +23,5 @@ class BookRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     def get_permissions(self):
         if self.request.method in ['PUT', 'PATCH', 'DELETE']:
             return [permissions.IsAuthenticated()]
+            ["ListView", "DetailView", "UpdateView", "DeleteView"]
         return [permissions.AllowAny()]
