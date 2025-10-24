@@ -125,3 +125,4 @@ STATIC_URL = '/static/'
 
 import os
 TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, 'templates')]
+["USER", "PORT"]
