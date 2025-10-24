@@ -1,10 +1,9 @@
-### 🔎 Filtering, Searching, and Ordering
+## 🧪 Running Tests
 
-The API supports query parameters for flexible data retrieval:
+To run the unit tests for the Book API:
+    python manage.py test api
 
-| Feature | Parameter | Example |
-|----------|------------|----------|
-| Filter by author | `?author=` | `/api/books/?author=John%20Doe` |
-| Search by title or author | `?search=` | `/api/books/?search=python` |
-| Order by field | `?ordering=` | `/api/books/?ordering=title` |
-| Reverse order | `?ordering=-field` | `/api/books/?ordering=-published_date` |
+### Tests cover:
+- CRUD operations
+- Authentication and permissions
+- Filtering, searching, and ordering
