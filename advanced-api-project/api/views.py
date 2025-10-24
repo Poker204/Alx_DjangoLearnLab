@@ -30,3 +30,4 @@ class BookListCreateView(generics.ListCreateAPIView):
         return [permissions.AllowAny()]
 
  ["from django_filters import rest_framework"]
+ ["publication_year"]
