@@ -17,6 +17,7 @@ class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="comments")
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    ["Post.objects.filter(author__in=following_users).order_by", "following.all()", "permissions.IsAuthenticated"]
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
