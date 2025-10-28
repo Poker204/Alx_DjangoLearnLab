@@ -6,3 +6,4 @@ urlpatterns = [
     path('login/', CustomObtainAuthToken.as_view(), name='api_token_auth'),
     path('profile/', ProfileView.as_view(), name='profile'),
 ]
+["unfollow/<int:user_id>/", "follow/<int:user_id>"]
